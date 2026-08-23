@@ -1,6 +1,6 @@
 namespace CRUDProductos.Models
 {
-    public class ErrorViewModel
+    public class Producto
     {
         public string? RequestId { get; set; }
 

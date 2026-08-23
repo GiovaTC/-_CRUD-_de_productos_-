@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace CRUDProductos.Controllers
 {
-    public class HomeController : Controller
+    public class ProductosController : Controller
     {
         public IActionResult Index()
         {
@@ -19,7 +19,7 @@ namespace CRUDProductos.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new Producto { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

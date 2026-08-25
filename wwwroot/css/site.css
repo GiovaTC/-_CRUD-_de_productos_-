@@ -1,31 +1,263 @@
+/* =====================================================
+   CONFIGURACIÓN GENERAL
+   ===================================================== */
+
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+    html {
+        font-size: 16px;
+    }
 }
 
 body {
-  margin-bottom: 60px;
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #f4f7fb;
+    color: #212529;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+
+/* =====================================================
+   NAVBAR
+   ===================================================== */
+
+.navbar-crud {
+    background: linear-gradient(135deg, #0d6efd, #084298);
+    min-height: 70px;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+.navbar-brand {
+    font-size: 1.35rem;
+}
+
+.icon-brand {
+    color: #ffd43b;
+    font-size: 1.5rem;
+}
+
+.navbar-crud .nav-link {
+    color: rgba(255, 255, 255, 0.90);
+    font-weight: 500;
+    margin: 0 5px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+    .navbar-crud .nav-link:hover {
+        color: #ffffff;
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .navbar-crud .nav-link i {
+        color: #ffd43b;
+    }
+
+.navbar-crud .navbar-text {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+    .navbar-crud .navbar-text i {
+        color: #20c997;
+    }
+
+
+/* =====================================================
+   CONTENIDO
+   ===================================================== */
+
+main {
+    min-height: calc(100vh - 150px);
+}
+
+
+/* =====================================================
+   TÍTULOS
+   ===================================================== */
+
+h1 {
+    color: #17365d;
+}
+
+    h1 i {
+        color: #0d6efd;
+    }
+
+
+/* =====================================================
+   TARJETAS
+   ===================================================== */
+
+.card {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card-header {
+    border: none;
+}
+
+    .card-header i {
+        color: #ffd43b;
+    }
+
+
+/* =====================================================
+   BOTONES
+   ===================================================== */
+
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+    .btn:hover {
+        transform: translateY(-1px);
+    }
+
+.btn-primary {
+    background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+    border: none;
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #198754, #157347);
+    border: none;
+}
+
+.btn-warning {
+    border: none;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #dc3545, #b02a37);
+    border: none;
+}
+
+.btn-info {
+    background: #0dcaf0;
+    border: none;
+}
+
+
+/* =====================================================
+   TABLA
+   ===================================================== */
+
+.table {
+    margin-bottom: 0;
+}
+
+    .table thead th {
+        background-color: #f1f5f9;
+        color: #334155;
+        font-weight: 600;
+        border-bottom: 2px solid #dee2e6;
+    }
+
+    .table tbody tr {
+        transition: background-color 0.2s ease;
+    }
+
+        .table tbody tr:hover {
+            background-color: #f0f7ff;
+        }
+
+    .table td {
+        vertical-align: middle;
+    }
+
+
+/* =====================================================
+   ICONOS DE ACCIONES
+   ===================================================== */
+
+.btn-outline-info i {
+    color: #0dcaf0;
+}
+
+.btn-outline-warning i {
+    color: #f59f00;
+}
+
+.btn-outline-danger i {
+    color: #dc3545;
+}
+
+.btn-outline-info:hover i,
+.btn-outline-warning:hover i,
+.btn-outline-danger:hover i {
+    color: white;
+}
+
+
+/* =====================================================
+   BADGES
+   ===================================================== */
+
+.badge {
+    font-weight: 500;
+}
+
+    .badge.bg-success {
+        background-color: #198754 !important;
+    }
+
+    .badge.bg-warning {
+        background-color: #ffc107 !important;
+    }
+
+    .badge.bg-danger {
+        background-color: #dc3545 !important;
+    }
+
+
+/* =====================================================
+   ICONOS GRANDES
+   ===================================================== */
+
+.display-1 i {
+    color: #0d6efd;
+    opacity: 0.65;
+}
+
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+.footer-crud {
+    background-color: #172033;
+    color: #adb5bd;
+    padding: 25px 0;
+    margin-top: 50px;
+}
+
+.footer-title {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+    .footer-title i {
+        color: #ffd43b;
+    }
+
+.footer-crud small {
+    color: #adb5bd;
+}
+
+
+/* =====================================================
+   ANIMACIONES
+   ===================================================== */
+
+.card,
+.btn,
+.alert {
+    transition: all 0.2s ease;
 }

@@ -4,6 +4,8 @@
 
 <img width="2554" height="1074" alt="image" src="https://github.com/user-attachments/assets/6c5b1b4c-e53c-4499-bfcb-d96881437b8a" />    
 
+<img width="2519" height="1079" alt="image" src="https://github.com/user-attachments/assets/22cf63df-0e33-4e0b-b9d9-1030ba75629c" />    
+
 ```
 
 # 🛒 CRUD de Productos:

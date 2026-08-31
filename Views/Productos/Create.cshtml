@@ -1,4 +1,264 @@
-﻿@page
-@model CRUDProductos.Views.Productos.CreateModel
+﻿@model CRUDProductos.Models.Producto
+
 @{
+    ViewData["Title"] = "Nuevo Producto";
 }
+
+<div class="container py-5">
+
+    <!-- Encabezado -->
+    <div class="row mb-4">
+        <div class="col-12">
+
+            <div class="d-flex align-items-center">
+
+                <div class="me-3">
+                    <i class="bi bi-plus-circle-fill text-primary"
+                       style="font-size: 2.5rem;"></i>
+                </div>
+
+                <div>
+                    <h1 class="fw-bold text-dark mb-1">
+                        Nuevo Producto
+                    </h1>
+
+                    <p class="text-muted mb-0">
+                        Registra un nuevo producto en el inventario.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Formulario -->
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8 col-xl-7">
+
+            <div class="card border-0 shadow-lg">
+
+                <!-- Cabecera -->
+                <div class="card-header bg-primary text-white py-3">
+
+                    <h5 class="mb-0 fw-bold">
+
+                        <i class="bi bi-box-seam-fill me-2"></i>
+
+                        Información del Producto
+
+                    </h5>
+
+                </div>
+
+
+                <!-- Cuerpo -->
+                <div class="card-body p-4">
+
+                    <form asp-action="Create" method="post">
+
+                        @Html.AntiForgeryToken()
+
+                        <!-- Resumen de errores -->
+                        <div asp-validation-summary="ModelOnly"
+                             class="alert alert-danger"
+                             role="alert">
+                        </div>
+
+
+                        <!-- Nombre -->
+                        <div class="mb-4">
+
+                            <label asp-for="Nombre"
+                                   class="form-label fw-bold">
+
+                                <i class="bi bi-tag-fill text-primary me-1"></i>
+
+                                Nombre del Producto
+
+                            </label>
+
+                            <input asp-for="Nombre"
+                                   class="form-control form-control-lg"
+                                   placeholder="Ej. Laptop Lenovo IdeaPad"
+                                   autocomplete="off" />
+
+                            <span asp-validation-for="Nombre"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+
+                        <!-- Descripción -->
+                        <div class="mb-4">
+
+                            <label asp-for="Descripcion"
+                                   class="form-label fw-bold">
+
+                                <i class="bi bi-card-text text-info me-1"></i>
+
+                                Descripción
+
+                            </label>
+
+                            <textarea asp-for="Descripcion"
+                                      class="form-control"
+                                      rows="4"
+                                      placeholder="Ingrese una descripción del producto..."></textarea>
+
+                            <span asp-validation-for="Descripcion"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+
+                        <!-- Precio y Stock -->
+                        <div class="row">
+
+                            <!-- Precio -->
+                            <div class="col-md-6 mb-4">
+
+                                <label asp-for="Precio"
+                                       class="form-label fw-bold">
+
+                                    <i class="bi bi-currency-dollar text-success me-1"></i>
+
+                                    Precio
+
+                                </label>
+
+                                <div class="input-group input-group-lg">
+
+                                    <span class="input-group-text bg-success text-white">
+                                        $
+                                    </span>
+
+                                    <input asp-for="Precio"
+                                           type="number"
+                                           step="0.01"
+                                           min="0.01"
+                                           class="form-control"
+                                           placeholder="0.00" />
+
+                                </div>
+
+                                <span asp-validation-for="Precio"
+                                      class="text-danger">
+                                </span>
+
+                            </div>
+
+
+                            <!-- Stock -->
+                            <div class="col-md-6 mb-4">
+
+                                <label asp-for="Stock"
+                                       class="form-label fw-bold">
+
+                                    <i class="bi bi-boxes text-warning me-1"></i>
+
+                                    Stock
+
+                                </label>
+
+                                <div class="input-group input-group-lg">
+
+                                    <span class="input-group-text bg-warning">
+                                        <i class="bi bi-box-seam"></i>
+                                    </span>
+
+                                    <input asp-for="Stock"
+                                           type="number"
+                                           min="0"
+                                           class="form-control"
+                                           placeholder="0" />
+
+                                </div>
+
+                                <span asp-validation-for="Stock"
+                                      class="text-danger">
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Información -->
+                        <div class="alert alert-info d-flex align-items-center">
+
+                            <i class="bi bi-info-circle-fill fs-4 me-3"></i>
+
+                            <div>
+                                Los campos marcados son obligatorios.
+                                El precio debe ser mayor que cero.
+                            </div>
+
+                        </div>
+
+
+                        <!-- Separador -->
+                        <hr class="my-4" />
+
+
+                        <!-- Botones -->
+                        <div class="d-flex justify-content-between flex-wrap gap-2">
+
+                            <a asp-action="Index"
+                               class="btn btn-outline-secondary btn-lg">
+
+                                <i class="bi bi-arrow-left me-2"></i>
+
+                                Volver
+
+                            </a>
+
+                            <button type="submit"
+                                    class="btn btn-success btn-lg px-4">
+
+                                <i class="bi bi-check-circle-fill me-2"></i>
+
+                                Guardar Producto
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+                <!-- Pie -->
+                <div class="card-footer bg-light text-muted">
+
+                    <small>
+
+                        <i class="bi bi-database-fill me-1"></i>
+
+                        El producto será almacenado en MySQL.
+
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+@section Scripts {
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+}   

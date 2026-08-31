@@ -4,30 +4,35 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // =====================================================
-// Configuración de servicios
+// CONFIGURACIÓN DE SERVICIOS
 // =====================================================
 
-// MVC
+// ASP.NET Core MVC
 builder.Services.AddControllersWithViews();
 
 // =====================================================
-// Entity Framework Core + MySQL
+// ENTITY FRAMEWORK CORE + MYSQL
 // =====================================================
 
 var connectionString = builder.Configuration
     .GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
     options.UseMySql(
         connectionString,
         ServerVersion.AutoDetect(connectionString)
-    )
-);
+    );
+});
+
+// =====================================================
+// CONSTRUCCIÓN DE LA APLICACIÓN
+// =====================================================
 
 var app = builder.Build();
 
 // =====================================================
-// Configuración del pipeline HTTP
+// CONFIGURACIÓN DEL PIPELINE HTTP
 // =====================================================
 
 if (!app.Environment.IsDevelopment())
@@ -36,23 +41,29 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+// HTTPS
 app.UseHttpsRedirection();
 
+// Archivos estáticos
+app.UseStaticFiles();
+
+// Routing
 app.UseRouting();
 
+// Autorización
 app.UseAuthorization();
 
-// Archivos estáticos
-app.MapStaticAssets();
-
 // =====================================================
-// Ruta principal
+// RUTAS MVC
 // =====================================================
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Productos}/{action=Index}/{id?}"
-)
-.WithStaticAssets();    
+);
+
+// =====================================================
+// EJECUTAR APLICACIÓN
+// =====================================================
 
 app.Run();

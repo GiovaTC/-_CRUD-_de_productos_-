@@ -6,41 +6,58 @@
 
 <div class="container py-5">
 
-    <!-- Encabezado -->
+    <!-- ================================================= -->
+    <!-- ENCABEZADO -->
+    <!-- ================================================= -->
+
     <div class="row mb-4">
+
         <div class="col-12">
 
             <div class="d-flex align-items-center">
 
                 <div class="me-3">
+
                     <i class="bi bi-plus-circle-fill text-primary"
-                       style="font-size: 2.5rem;"></i>
+                       style="font-size: 2.5rem;">
+                    </i>
+
                 </div>
 
                 <div>
-                    <h1 class="fw-bold text-dark mb-1">
+
+                    <h1 class="fw-bold text-primary mb-1">
                         Nuevo Producto
                     </h1>
 
                     <p class="text-muted mb-0">
                         Registra un nuevo producto en el inventario.
                     </p>
+
                 </div>
 
             </div>
 
         </div>
+
     </div>
 
 
-    <!-- Formulario -->
+    <!-- ================================================= -->
+    <!-- FORMULARIO -->
+    <!-- ================================================= -->
+
     <div class="row justify-content-center">
 
         <div class="col-lg-8 col-xl-7">
 
             <div class="card border-0 shadow-lg">
 
-                <!-- Cabecera -->
+
+                <!-- ================================================= -->
+                <!-- CABECERA -->
+                <!-- ================================================= -->
+
                 <div class="card-header bg-primary text-white py-3">
 
                     <h5 class="mb-0 fw-bold">
@@ -54,21 +71,31 @@
                 </div>
 
 
-                <!-- Cuerpo -->
+                <!-- ================================================= -->
+                <!-- CUERPO -->
+                <!-- ================================================= -->
+
                 <div class="card-body p-4">
 
-                    <form asp-action="Create" method="post">
+                    <form asp-controller="Productos"
+                          asp-action="Create"
+                          method="post">
 
                         @Html.AntiForgeryToken()
 
-                        <!-- Resumen de errores -->
+
+                        <!-- ERRORES -->
+
                         <div asp-validation-summary="ModelOnly"
                              class="alert alert-danger"
                              role="alert">
                         </div>
 
 
-                        <!-- Nombre -->
+                        <!-- ================================================= -->
+                        <!-- NOMBRE -->
+                        <!-- ================================================= -->
+
                         <div class="mb-4">
 
                             <label asp-for="Nombre"
@@ -92,7 +119,10 @@
                         </div>
 
 
-                        <!-- Descripción -->
+                        <!-- ================================================= -->
+                        <!-- DESCRIPCIÓN -->
+                        <!-- ================================================= -->
+
                         <div class="mb-4">
 
                             <label asp-for="Descripcion"
@@ -107,7 +137,8 @@
                             <textarea asp-for="Descripcion"
                                       class="form-control"
                                       rows="4"
-                                      placeholder="Ingrese una descripción del producto..."></textarea>
+                                      placeholder="Ingrese una descripción del producto...">
+                            </textarea>
 
                             <span asp-validation-for="Descripcion"
                                   class="text-danger">
@@ -116,10 +147,15 @@
                         </div>
 
 
-                        <!-- Precio y Stock -->
+                        <!-- ================================================= -->
+                        <!-- PRECIO / STOCK -->
+                        <!-- ================================================= -->
+
                         <div class="row">
 
-                            <!-- Precio -->
+
+                            <!-- PRECIO -->
+
                             <div class="col-md-6 mb-4">
 
                                 <label asp-for="Precio"
@@ -140,7 +176,7 @@
                                     <input asp-for="Precio"
                                            type="number"
                                            step="0.01"
-                                           min="0.01"
+                                           min="0"
                                            class="form-control"
                                            placeholder="0.00" />
 
@@ -153,7 +189,8 @@
                             </div>
 
 
-                            <!-- Stock -->
+                            <!-- STOCK -->
+
                             <div class="col-md-6 mb-4">
 
                                 <label asp-for="Stock"
@@ -168,7 +205,9 @@
                                 <div class="input-group input-group-lg">
 
                                     <span class="input-group-text bg-warning">
+
                                         <i class="bi bi-box-seam"></i>
+
                                     </span>
 
                                     <input asp-for="Stock"
@@ -188,27 +227,38 @@
                         </div>
 
 
-                        <!-- Información -->
+                        <!-- ================================================= -->
+                        <!-- INFORMACIÓN -->
+                        <!-- ================================================= -->
+
                         <div class="alert alert-info d-flex align-items-center">
 
                             <i class="bi bi-info-circle-fill fs-4 me-3"></i>
 
                             <div>
+
                                 Los campos marcados son obligatorios.
-                                El precio debe ser mayor que cero.
+                                El precio debe ser mayor o igual a cero.
+
                             </div>
 
                         </div>
 
 
-                        <!-- Separador -->
                         <hr class="my-4" />
 
 
-                        <!-- Botones -->
+                        <!-- ================================================= -->
+                        <!-- BOTONES -->
+                        <!-- ================================================= -->
+
                         <div class="d-flex justify-content-between flex-wrap gap-2">
 
-                            <a asp-action="Index"
+
+                            <!-- VOLVER -->
+
+                            <a asp-controller="Productos"
+                               asp-action="Index"
                                class="btn btn-outline-secondary btn-lg">
 
                                 <i class="bi bi-arrow-left me-2"></i>
@@ -216,6 +266,9 @@
                                 Volver
 
                             </a>
+
+
+                            <!-- GUARDAR -->
 
                             <button type="submit"
                                     class="btn btn-success btn-lg px-4">
@@ -233,7 +286,10 @@
                 </div>
 
 
-                <!-- Pie -->
+                <!-- ================================================= -->
+                <!-- FOOTER -->
+                <!-- ================================================= -->
+
                 <div class="card-footer bg-light text-muted">
 
                     <small>
@@ -255,6 +311,9 @@
 </div>
 
 
+<!-- ================================================= -->
+<!-- VALIDACIÓN -->
+<!-- ================================================= -->
 @section Scripts {
 
     @{

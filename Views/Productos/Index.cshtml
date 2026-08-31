@@ -6,15 +6,15 @@
 
 <div class="container py-5">
 
-    <!-- ============================================= -->
+    <!-- ================================================= -->
     <!-- ENCABEZADO -->
-    <!-- ============================================= -->
+    <!-- ================================================= -->
 
     <div class="row align-items-center mb-4">
 
         <div class="col-md-8">
 
-            <h1 class="fw-bold mb-2">
+            <h1 class="fw-bold mb-2 text-primary">
 
                 <i class="bi bi-box-seam-fill me-2"></i>
 
@@ -30,9 +30,11 @@
 
         </div>
 
+        <!-- BOTÓN CREAR -->
         <div class="col-md-4 text-md-end mt-3 mt-md-0">
 
-            <a asp-action="Create"
+            <a asp-controller="Productos"
+               asp-action="Create"
                class="btn btn-primary btn-lg shadow-sm">
 
                 <i class="bi bi-plus-circle-fill me-2"></i>
@@ -46,9 +48,9 @@
     </div>
 
 
-    <!-- ============================================= -->
-    <!-- TARJETA -->
-    <!-- ============================================= -->
+    <!-- ================================================= -->
+    <!-- TARJETA PRINCIPAL -->
+    <!-- ================================================= -->
 
     <div class="card border-0 shadow-lg">
 
@@ -87,17 +89,23 @@
         </div>
 
 
+        <!-- ================================================= -->
         <!-- CONTENIDO -->
+        <!-- ================================================= -->
 
         <div class="card-body p-0">
 
             @if (!Model.Any())
             {
+                <!-- ========================================= -->
+                <!-- SIN PRODUCTOS -->
+                <!-- ========================================= -->
+
                 <div class="text-center py-5 px-3">
 
                     <div class="display-1 mb-3">
 
-                        <i class="bi bi-box-seam"></i>
+                        <i class="bi bi-box-seam text-primary"></i>
 
                     </div>
 
@@ -113,8 +121,11 @@
 
                     </p>
 
-                    <a asp-action="Create"
-                       class="btn btn-primary">
+                    <!-- BOTÓN CREAR PRODUCTO -->
+
+                    <a asp-controller="Productos"
+                       asp-action="Create"
+                       class="btn btn-success btn-lg shadow-sm">
 
                         <i class="bi bi-plus-circle-fill me-2"></i>
 
@@ -126,11 +137,15 @@
             }
             else
             {
+                <!-- ========================================= -->
+                <!-- TABLA -->
+                <!-- ========================================= -->
+
                 <div class="table-responsive">
 
-                    <table class="table table-hover align-middle">
+                    <table class="table table-hover align-middle mb-0">
 
-                        <thead>
+                        <thead class="table-light">
 
                             <tr>
 
@@ -168,6 +183,8 @@
                             {
                                 <tr>
 
+                                    <!-- ID -->
+
                                     <td class="text-center">
 
                                         <span class="badge bg-secondary">
@@ -177,6 +194,9 @@
                                         </span>
 
                                     </td>
+
+
+                                    <!-- PRODUCTO -->
 
                                     <td>
 
@@ -189,6 +209,9 @@
                                         </span>
 
                                     </td>
+
+
+                                    <!-- DESCRIPCIÓN -->
 
                                     <td>
 
@@ -207,6 +230,9 @@
 
                                     </td>
 
+
+                                    <!-- PRECIO -->
+
                                     <td class="text-end">
 
                                         <span class="fw-bold text-success">
@@ -218,6 +244,9 @@
                                         </span>
 
                                     </td>
+
+
+                                    <!-- STOCK -->
 
                                     <td class="text-center">
 
@@ -254,11 +283,20 @@
 
                                     </td>
 
+
+                                    <!-- ================================= -->
+                                    <!-- ACCIONES CRUD -->
+                                    <!-- ================================= -->
+
                                     <td class="text-center">
 
-                                        <div class="btn-group">
+                                        <div class="btn-group"
+                                             role="group">
 
-                                            <a asp-action="Details"
+                                            <!-- VER -->
+
+                                            <a asp-controller="Productos"
+                                               asp-action="Details"
                                                asp-route-id="@item.Id"
                                                class="btn btn-outline-info"
                                                title="Ver detalles">
@@ -267,7 +305,11 @@
 
                                             </a>
 
-                                            <a asp-action="Edit"
+
+                                            <!-- EDITAR -->
+
+                                            <a asp-controller="Productos"
+                                               asp-action="Edit"
                                                asp-route-id="@item.Id"
                                                class="btn btn-outline-warning"
                                                title="Editar">
@@ -276,7 +318,11 @@
 
                                             </a>
 
-                                            <a asp-action="Delete"
+
+                                            <!-- ELIMINAR -->
+
+                                            <a asp-controller="Productos"
+                                               asp-action="Delete"
                                                asp-route-id="@item.Id"
                                                class="btn btn-outline-danger"
                                                title="Eliminar">
@@ -302,7 +348,9 @@
         </div>
 
 
+        <!-- ================================================= -->
         <!-- FOOTER -->
+        <!-- ================================================= -->
         @if (Model.Any())
         {
             <div class="card-footer bg-light">
@@ -317,7 +365,11 @@
 
                     </small>
 
-                    <a asp-action="Create"
+
+                    <!-- BOTÓN AGREGAR -->
+
+                    <a asp-controller="Productos"
+                       asp-action="Create"
                        class="btn btn-sm btn-primary">
 
                         <i class="bi bi-plus-lg me-1"></i>
@@ -330,5 +382,5 @@
 
             </div>
         }
-    </div>
-</div>
+    </div>  
+</div>  

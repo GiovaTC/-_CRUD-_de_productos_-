@@ -8,6 +8,8 @@
 
 <img width="2519" height="1079" alt="image" src="https://github.com/user-attachments/assets/22cf63df-0e33-4e0b-b9d9-1030ba75629c" />    
 
+<img width="2558" height="1079" alt="image" src="https://github.com/user-attachments/assets/5879d1f3-6d4f-4f57-a484-5a986d937186" />    
+
 ```
 
 # 🛒 CRUD de Productos:
